@@ -1,8 +1,8 @@
-# Wedding Card — 한국 모바일 청첩장 제작 하네스
+# Wedding Letter — 한국 모바일 청첩장 제작 하네스
 
 > Claude Code 기반 멀티 에이전트 하네스로 한국 모바일 웨딩 청첩장을 컨셉부터 QA까지 자동 제작합니다. 6명의 전문가 에이전트가 파이프라인 + 팬아웃 패턴으로 협업하여 단일 페이지 정적 HTML을 생성합니다.
 
-**Live demo**: https://revfactory.github.io/wedding-card/ (Pages 활성화 후)
+**Live demo**: https://revfactory.github.io/wedding-letter/ (Pages 활성화 후)
 
 ---
 
@@ -98,7 +98,7 @@ Phase 5: 사용자 보고 + placeholder 안내 + 피드백 수집
 ## 프로젝트 구조
 
 ```
-wedding-card/
+wedding-letter/
 ├── index.html               # 메인 청첩장 페이지
 ├── style.css                # 스타일 (1,200+ lines)
 ├── script.js                # 인터랙션 + 애니메이션 (660+ lines)
