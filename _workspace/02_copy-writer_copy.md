@@ -1,308 +1,269 @@
-# Copy Sheet — 김민준 ♡ 박서연 청첩장 카피
-> mood: modern romantic · soft botanical · refined warmth
-> 어조: 차분한 경어체 + 짧고 시적인 호흡, 격식과 따뜻함의 균형
+# 한태현 ♥ 옥정미 — 청첩장 카피 시트
+
+> 컨셉 시트(`01_concept-director_concept-sheet.md`)의 sections_order를 그대로 따른다.
+> hero → greeting → couple-intro → calendar → gallery → venue → account → rsvp → share
 
 ---
 
-## hero_subtitle
+## hero
 
-**영문 (Allura script 강조용)**
-> We're getting married
+### hero_eyebrow (영문 디스플레이, Bungee, 코랄)
+We're Getting Married!
 
-**Save the Date (Cormorant Garamond)**
-> SAVE THE DATE
-> 10 . 17 . 2026
+### hero_names (한글 디스플레이, Black Han Sans)
+한태현 · 옥정미
 
-**한글 보조 (Nanum Myeongjo)**
-> 민준 · 서연
-> 가을의 약속
+### hero_date (영문/숫자 디스플레이, Fredoka)
+2026. 11. 07 SAT 12:30 PM
+
+### hero_subtitle (한 줄 보조 카피, Gowun Batang)
+서로의 하루를 함께 채워가는 첫 페이지
 
 ---
 
 ## greeting
 
-```
-가을의 햇살이 길어지는 날,
-저희 두 사람이
-서로의 곁을 약속합니다.
+### greeting_eyebrow (영문 한 줄, Caveat 손글씨)
+With love,
 
-조용히 피어난 마음을 모아
-한 걸음을 내딛는 자리에
-귀한 걸음 더해 주신다면,
-오래 기억될 하루가 되겠습니다.
+### greeting_headline (섹션 헤더, Jua / Black Han Sans, 느낌표 포함)
+저희, 결혼합니다!
+
+### greeting_body (Gowun Batang, 본문 — 사용자 원문 보존)
+```
+시선이 닿는 높이는 서로 다르지만,
+좋아하는 것과 바라보는 곳은 닮아 있습니다.
+
+각자의 세계가 뚜렷했던 두 사람이
+이제 서로의 하루를 함께 채워가려 합니다.
+
+눈높이는 맞춰가고,
+좋아하는 것들을 나누며 살겠습니다.
+
+저희의 새로운 시작을
+함께 축복해 주세요.
 ```
 
-> 줄바꿈 가이드: 한 행 12-16자 기준. 모바일에서 한 호흡 단위로 끊어 읽히도록 위 형태 유지.
-> 영문 한 줄(선택): `A quiet promise, in autumn light.` — 인사말 하단 Cormorant Garamond 이탤릭으로 작게 배치 권장.
+### greeting_closing (한 줄, 들뜬 마감)
+함께해 주시면 큰 기쁨이 되겠습니다.
 
 ---
 
 ## couple_intro
 
-### 신랑
-- **김재현 · 이수진** 의 **장남**
-- **김민준** *(Minjun Kim)*
-- 한 줄 소개(선택): "한 걸음씩, 진심을 닮아가는 사람."
+### couple_intro_eyebrow (영문)
+The Groom & The Bride
 
-### 신부
-- **박정훈 · 최은영** 의 **장녀**
-- **박서연** *(Seoyeon Park)*
-- 한 줄 소개(선택): "곁에 머물수록 따뜻해지는 사람."
+### couple_intro_headline
+두 사람을 소개합니다
 
-> 표기 규칙: 부모 함자는 가운뎃점(·)으로 연결, 양가 모두 동일 포맷. 카드 레이아웃에서 부모 함자는 muted(#8E7D75), 신랑신부 이름은 primary(#C9A2A2) 또는 text(#3A2E2A) 강조.
+### couple_intro_parents (Pretendard, 정보 라인)
+- 신랑: **한상철 · 백은하** 의 외아들 **한태현**
+- 신부: **옥명호 · 김인자** 의 외동딸 **옥정미**
 
----
+### couple_intro_groom_tag (캐릭터 옆 한 줄, Gowun Batang)
+- 한태현 — 묵묵한 다정함, 바다를 좋아하는 사람
+### couple_intro_bride_tag
+- 옥정미 — 환한 호기심, 작은 것들을 잘 알아채는 사람
 
-## ceremony_info
-
-- **일시**: 2026년 10월 17일 토요일 오후 2시
-- **영문 보조 표기**: SATURDAY, OCTOBER 17, 2026 · 2:00 PM
-- **장소**: 그랜드 인터컨티넨탈 서울 파르나스 5층 그랜드볼룸
-- **주소**: 서울특별시 강남구 테헤란로 521
-- **장소 짧은 표기 (헤더용)**: 인터컨티넨탈 서울 · 그랜드볼룸
+> 위 한 줄 소개는 사용자 확정 전 임시 카피. 원치 않으면 라벨만 (신랑 / 신부) 표기로 대체 가능.
 
 ---
 
-## directions
+## calendar
 
-### 지하철
-```
-2호선 · 9호선 삼성중앙역 5번 출구
-도보 약 3분
-```
+### calendar_eyebrow (영문)
+Save the Date
 
-### 버스
-```
-무역센터·현대백화점 정류장 하차
-- 간선: 146, 341, 360, 740
-- 지선: 2415, 4318
-- 광역: 9404, 9407, 9507
-```
+### calendar_headline
+2026년 11월
 
-### 자가용 / 주차
-```
-호텔 지하 주차장 이용
-예식 시간 기준 3시간 무료 주차 지원
+### calendar_caption (캘린더 하단 한 줄, Gowun Batang)
+11월 7일 토요일,
+저희의 가장 빛나는 하루입니다.
 
-네비게이션: "그랜드 인터컨티넨탈 서울 파르나스"
-또는 "테헤란로 521" 검색
-```
+### dday_label_prefix
+결혼식까지
 
-### 지도 앱 바로가기 (버튼 라벨)
-- T map / 카카오내비 / 네이버 지도
+### dday_label_suffix
+일 남았어요
+
+### dday_label_today
+오늘이 저희 결혼식이에요!
+
+### dday_label_past
+함께해 주셔서 감사했습니다.
 
 ---
 
-## account_message
+## gallery
 
-```
+### gallery_eyebrow (영문)
+Our Little Moments
+
+### gallery_headline
+함께 걸어온 길
+
+### gallery_caption (한 줄, Gowun Batang)
+좋아하는 것들을 닮아가던
+작은 순간들을 모았어요.
+
+### gallery_placeholder_note (사진 미수집 안내, 디자인 노트용)
+사진은 추후 교체 예정 — 일러스트 액자 프레임으로 placeholder 표시.
+
+---
+
+## venue
+
+### venue_eyebrow (영문)
+Save the Place
+
+### venue_headline
+오시는 길
+
+### venue_date_line (Pretendard, 정보)
+2026년 11월 7일 토요일 오후 12시 30분
+
+### venue_place_line
+로프트가든 344 · 정원빌딩 10층
+
+### venue_address_line
+서울 양천구 오목로 344
+
+### venue_caption (지도 위 한 줄, Gowun Batang)
+저희가 처음으로 함께 인사드리는 자리예요.
+
+### directions
+
+#### 지하철
+5호선 **오목교역 7번출구**
+도보 약 3분 거리예요.
+
+#### 버스
+오목교역 · 목동운동장 정류장 하차
+- 간선 / 지선 노선이 정차하니
+  네이버 지도에서 "로프트가든 344" 검색이 가장 빠릅니다.
+
+#### 자가용 · 주차
+**정원빌딩 주차장** 이용 가능합니다.
+만차 시 인근 **공영주차장** 이용을 부탁드려요.
+네비게이션: "로프트가든 344" 또는 "서울 양천구 오목로 344"
+
+---
+
+## account
+
+### account_eyebrow (영문)
+With Heart
+
+### account_headline
+마음 전하실 곳
+
+### account_message (도입 문구, Gowun Batang)
 참석이 어려우신 분들을 위해
 마음 전하실 곳을 안내드립니다.
 
-따뜻한 축하의 마음,
-저희 두 사람 오래 간직하겠습니다.
-```
+작은 축하라도 저희 두 사람에겐
+오래 기억될 큰 힘이 됩니다.
+
+### account_info
+
+#### 신랑측
+- 한태현 · [○○은행 000-0000-000000]
+- 아버지 한상철 · [○○은행 000-0000-000000]
+- 어머니 백은하 · [○○은행 000-0000-000000]
+
+#### 신부측
+- 옥정미 · [○○은행 000-0000-000000]
+- 아버지 옥명호 · [○○은행 000-0000-000000]
+- 어머니 김인자 · [○○은행 000-0000-000000]
+
+### account_copy_button_label
+계좌번호 복사
+
+### account_copy_toast_success
+계좌번호가 복사되었어요
 
 ---
 
-## account_info
+## rsvp
 
-### 신랑측
+### rsvp_eyebrow (영문)
+RSVP
 
-- **신랑 김민준**
-  `[○○은행 ○○○-○○○○-○○○○ 김민준]`
-- **신랑 아버지 김재현**
-  `[○○은행 ○○○-○○○○-○○○○ 김재현]`
-- **신랑 어머니 이수진**
-  `[○○은행 ○○○-○○○○-○○○○ 이수진]`
+### rsvp_headline
+참석 의사 전달
 
-### 신부측
+### rsvp_message (Gowun Batang)
+참석 여부를 미리 알려주시면
+더 정성껏 자리를 준비하겠습니다.
 
-- **신부 박서연**
-  `[○○은행 ○○○-○○○○-○○○○ 박서연]`
-- **신부 아버지 박정훈**
-  `[○○은행 ○○○-○○○○-○○○○ 박정훈]`
-- **신부 어머니 최은영**
-  `[○○은행 ○○○-○○○○-○○○○ 최은영]`
+소중한 시간 내어주시는 모든 분께
+미리 감사드립니다.
 
-> 각 계좌마다 `복사하기` 버튼 제공. 복사 성공 시 sage 체크마크 + "계좌번호가 복사되었습니다" 토스트.
-> 카카오페이 송금 링크가 준비되면 각 항목 우측에 `송금하기` 보조 버튼 추가 가능.
+### rsvp_button_label
+참석 의사 전하기
 
----
+### rsvp_form_url_placeholder
+[RSVP 외부 폼 URL 입력 — 예: 구글 폼 / 네이버 폼 링크]
 
-## rsvp_message
-
-```
-참석 의사를 미리 전해 주시면
-더욱 정성껏 자리를 준비하겠습니다.
-
-소중한 시간 내어 주시는 모든 분들께
-미리 감사의 마음을 전합니다.
-```
-
-### RSVP 폼 라벨
-- 참석 여부: `참석` / `미참석`
-- 구분: `신랑측` / `신부측`
-- 성함
-- 동행 인원 (본인 포함)
-- 식사 여부: `예정` / `미정`
-- 연락처 (선택)
-- 전하실 말씀 (선택)
-
-### 제출 버튼
-- `마음 전하기`
-
-### 제출 완료 토스트
-- `소중한 마음 잘 받았습니다.`
+### rsvp_fallback_note (폼 미준비 시 안내, 선택)
+폼이 준비되는 대로 이 자리에서 전달드릴게요.
 
 ---
 
-## guestbook_message
+## share
 
-```
-두 사람에게 전하고 싶은 한마디를
-남겨 주세요.
+### share_eyebrow (영문)
+Share the Joy
 
-오래도록 마음에 담아
-간직하겠습니다.
-```
+### share_headline
+함께 나누고 싶다면
 
-## guestbook_placeholder
+### share_message (Gowun Batang)
+함께 나누고 싶은 분께
+저희의 소식을 전해주세요.
 
-```
-"축하의 마음을 한 줄 남겨주세요"
-```
+### share_kakao_button_label
+카카오톡으로 공유하기
 
-### 작성 폼 라벨
-- 성함
-- 메시지
-- 비밀번호 (4자리 — 수정/삭제용)
-- 제출 버튼: `마음 남기기`
+### share_link_button_label
+청첩장 링크 복사
 
----
-
-## gallery_message
-
-```
-함께 걸어온 시간들,
-그 안에 담긴 마음을
-나누고 싶습니다.
-```
-
-> 갤러리 섹션 상단 안내 카피. 짧고 호흡 길게.
-> 영문 보조(선택, 우측 상단 캡션): `Moments, gathered softly.`
-> 핀치 줌 lightbox 사용 안내 툴팁: "사진을 누르면 크게 볼 수 있어요"
+### share_link_toast_success
+링크가 복사되었어요
 
 ---
 
-## calendar_message
+## kakao_share (오픈그래프 / 카카오 미리보기)
 
-### 섹션 헤더
-- 한글: `예식일`
-- 영문 보조: `THE DAY`
-
-### 캘린더 강조 표기
-- 표시 월: **OCTOBER 2026**
-- 강조 날짜: **17 (SAT)**
-- 강조 색: dusty rose(#C9A2A2) 원형 배경 + deep rosewood(#8B5A5A) 숫자
-
-### D-day 카운트다운 카피
-
-**예식 전 (D-{n}, n > 0)**
-```
-민준 · 서연의 결혼식까지
-D - {n}
-```
-
-**당일 (D-day)**
-```
-오늘,
-저희 두 사람의 약속이 시작됩니다.
-```
-
-**예식 후 (D+{n})**
-```
-함께 걸어가는 {n}번째 날
-끝까지 축복해 주셔서 감사합니다.
-```
-
-### 단위 라벨 (일·시·분·초 분리 표기 시)
-- `일` / `시간` / `분` / `초`
-- 영문 보조: `DAYS` / `HOURS` / `MINUTES` / `SECONDS`
-
-### 보조 캡션
-```
-2026년 10월 17일 토요일 오후 2시
-그랜드 인터컨티넨탈 서울 파르나스
-```
+- **title**: 한태현 ♥ 옥정미 결혼합니다
+- **description**: 2026.11.07 토요일 오후 12:30 · 로프트가든 344
+- **image_alt**: 바다와 언덕집을 바라보는 신랑신부 일러스트
 
 ---
 
-## share_message
+## footer
 
-### 공유 섹션 헤더
-- 한글: `청첩장 공유하기`
-- 영문 보조: `SHARE`
+### footer_thanks (페이지 맨 아래 한 줄, Caveat)
+Thank you for being part of our story.
 
-### 공유 안내 카피
-```
-저희의 소식을
-가까운 분들께도 함께 전해 주세요.
-```
-
-### 버튼 라벨
-- `카카오톡으로 공유하기`
-- `링크 복사하기`
-
-### 링크 복사 완료 토스트
-- `청첩장 링크가 복사되었습니다.`
+### footer_signature (Pretendard, 보조)
+2026.11.07 · 한태현 & 옥정미 드림
 
 ---
 
-## kakao_share
+## 체크리스트 (작성 후 확인)
 
-- **title**: `김민준 ♡ 박서연 결혼합니다`
-- **description**: `2026년 10월 17일 토요일 오후 2시\n그랜드 인터컨티넨탈 서울 · 그랜드볼룸`
-- **button_label**: `청첩장 보기`
-- **image_alt**: `김민준 박서연 모바일 청첩장 — 2026년 10월 17일`
-
-> 글자수 체크: title 15자(40자 이내 OK), description 41자(90자 이내 OK).
-
----
-
-## meta (HTML head용)
-
-- **page_title**: `민준 ♡ 서연 — 2026.10.17 결혼합니다`
-- **meta_description**: `김민준 박서연의 결혼식에 귀한 걸음 부탁드립니다. 2026년 10월 17일 토요일 오후 2시, 그랜드 인터컨티넨탈 서울 파르나스 그랜드볼룸.`
-- **og_title**: `김민준 ♡ 박서연 결혼합니다`
-- **og_description**: `2026년 10월 17일 토요일 오후 2시 · 그랜드 인터컨티넨탈 서울 그랜드볼룸`
-
----
-
-## section_labels (네비/섹션 헤더 통일)
-
-| 섹션 키 | 한글 | 영문 보조(Cormorant) |
-|---------|------|----------------------|
-| hero | — | SAVE THE DATE |
-| greeting | 초대합니다 | INVITATION |
-| couple-intro | 신랑 신부 | THE COUPLE |
-| calendar | 예식일 | THE DAY |
-| gallery | 우리의 순간 | OUR MOMENTS |
-| venue | 오시는 길 | LOCATION |
-| account | 마음 전하실 곳 | WITH HEART |
-| rsvp | 참석 의사 전달 | RSVP |
-| guestbook | 방명록 | GUEST BOOK |
-| share | 청첩장 공유 | SHARE |
-
----
-
-## tone_check (작성자 메모)
-
-- [x] 부모 함자: 김재현·이수진 / 박정훈·최은영 — 컨셉 시트와 정확히 일치
-- [x] 출생순서: 장남(김민준) / 장녀(박서연) 명시
-- [x] 일시: 2026년 10월 17일 토요일 오후 2시 — 한국식 정확
-- [x] 장소·주소: 그랜드 인터컨티넨탈 서울 파르나스 5층 그랜드볼룸 / 서울특별시 강남구 테헤란로 521
-- [x] 계좌 6개 placeholder: 신랑/신랑부/신랑모/신부/신부부/신부모
-- [x] og:title 15자, og:description 41자 (카카오 제한 준수)
-- [x] 인사말 어조: "modern romantic" — 클리셰("두 사람이 하나가 되는") 회피, 가을·약속·조용히 피어남 모티프 사용
-- [x] 한 행 12-16자 호흡 유지
+- [x] 부모 함자: 한상철 · 백은하 / 옥명호 · 김인자 — 컨셉 시트와 일치
+- [x] 출생순서: 신랑 외아들 / 신부 외동딸 (장남·장녀 아님)
+- [x] 일시: 2026년 11월 7일 토요일 오후 12시 30분
+- [x] 장소: 로프트가든 344 (정원빌딩 10층) / 서울 양천구 오목로 344
+- [x] 교통: 5호선 오목교역 7번출구 / 정원빌딩 주차장 또는 공영주차장
+- [x] 사용자 원문 인사말 6행 보존
+- [x] hero 헤더 "저희, 결혼합니다!" 보존
+- [x] 영문 카피 카툰 톤 ("We're Getting Married!", "Save the Date", "With love", "With Heart" 등) 1~2회씩 포인트 사용
+- [x] 계좌번호 placeholder `[○○은행 000-0000-000000]` 표기
+- [x] RSVP 외부 폼 URL placeholder 표기
+- [x] og:title / og:description 카카오 글자수 제한 내
+- [x] 호텔 격식 한자 호칭(令愛/令息 등) 미사용

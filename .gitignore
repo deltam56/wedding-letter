@@ -5,3 +5,9 @@
 node_modules/
 .vscode/
 .idea/
+
+# 참조 자료 / 이미지 생성 임시 스크립트 (디스크 유지, 커밋 제외)
+ref_inv/
+_workspace/_image_*.py
+*_prev_*/
+images/gallery/

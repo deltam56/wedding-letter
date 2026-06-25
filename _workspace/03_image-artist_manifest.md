@@ -1,124 +1,219 @@
-# Image Manifest — 이미지 아티스트 산출물
+---
+generated_by: "Gemini 2.5 Flash Image (Nano Banana) via _workspace/_image_gen.py"
+style_reference: "ref_inv/inv_front.png, ref_inv/inv_back.png"
+style_keywords: "cartoon storybook illustration, soft rounded outlines, flat color with subtle paper texture, mustard yellow + coral red + sky blue + forest green + amber palette, super-deformed (SD) chibi characters, digital painting children's picture-book aesthetic"
+user_policy:
+  - "전체 컨셉이 무너지지 않는 선에서 CSS/HTML 텍스트 요소로 처리. 모든 시각 요소를 이미지로 만들 필요 없음."
+  - "이미지에 의도치 않게 박힌 텍스트(ref_inv 원본을 모델이 따라 그린 잔재)는 CSS object-position·crop으로 잘라내거나, 해당 자산을 CSS/SVG/한글 텍스트로 대체."
+known_artifacts: |
+  Gemini 모델이 ref_inv 학습 이미지의 영문 헤드라인("We're Getting Married") 및 일부 한글
+  (부모 함자 띠, 신랑신부 이름)을 함께 그려넣음. 일러스트 자체의 스타일/캐릭터/배경 톤은
+  ref_inv와 완벽히 일치하지만, 텍스트가 박힌 영역은 frontend에서 crop으로 가리거나
+  CSS 텍스트로 덮어쓴다.
+---
 
-**스타일 베이스라인**: dusty rose (#C9A2A2) × sage green (#A8B59C) duotone watercolor botanical, warm ivory cream background (#FAF6F1 / #FBF7F3), deep rosewood (#8B5A5A) accents at petal cores. Hand-painted watercolor texture with paper grain, minimal thin line accents. No text, no figures, no people.
+# 이미지 매니페스트 — 한태현 × 옥정미 청첩장
 
-**모델**: `gpt-image-2` / **Quality**: `high` / **Format**: PNG
+## 사용 정책 요약
 
-## 요약 표
+| 분류 | 처리 방식 |
+|------|-----------|
+| 일러스트 (캐릭터 + 풍경)가 메인인 이미지 | 사용. 텍스트 박힌 영역은 CSS `object-fit: cover` + `object-position`으로 잘라냄 |
+| 텍스트가 시각의 70% 이상을 차지한 이미지 (couple-icons, og) | 사용 보류 — SVG/CSS/HTML 텍스트로 대체 |
+| 깨끗한 일러스트 (gallery-02) | 그대로 사용 |
+| 디바이더 | 중앙 영역만 crop 또는 SVG 라인 + 작은 하트로 대체 |
 
-| # | 파일명 | 용도 | 사용 섹션 | 차원 (W×H) | 비율 | 권장 alt 텍스트 | 상태 |
-|---|--------|------|----------|-----------|------|----------------|------|
-| 1 | hero-illustration.png | 메인 비주얼 (인물 placeholder 대체) | hero | 1024×1280 | 4:5 | "더스티 로즈 장미와 세이지 유칼립투스 가지의 워터컬러 보태니컬 일러스트 — 메인 히어로" | 성공 |
-| 2 | floral-divider.png | 섹션 사이 가로 플로럴 디바이더 | greeting↔couple-intro, venue↔account 등 | 1536×512 | 16:5 (3:1) | "좌우 대칭 워터컬러 플로럴 디바이더" | 성공 |
-| 3 | floral-corner.png | 좌상단 모서리 장식 | calendar / account / rsvp 카드 코너 | 1024×1024 | 1:1 | "좌상단 모서리 보태니컬 장식" | 성공 |
-| 4 | gallery-placeholder-1.png | 갤러리 1번 placeholder (오프센터 부케) | gallery slot 1 | 1024×1280 | 4:5 | "더스티 로즈와 세이지 부케 워터컬러 — 갤러리 1" | 성공 |
-| 5 | gallery-placeholder-2.png | 갤러리 2번 placeholder (수직 유칼립투스) | gallery slot 2 | 1024×1280 | 4:5 | "유칼립투스 줄기와 장미 봉오리 워터컬러 — 갤러리 2" | 성공 |
-| 6 | gallery-placeholder-3.png | 갤러리 3번 placeholder (떠다니는 꽃잎) | gallery slot 3 | 1024×1280 | 4:5 | "흩날리는 장미 꽃잎 워터컬러 — 갤러리 3" | 성공 |
-| 7 | gallery-placeholder-4.png | 갤러리 4번 placeholder (하단 군집) | gallery slot 4 | 1024×1280 | 4:5 | "하단 보태니컬 군집 워터컬러 — 갤러리 4" | 성공 |
-| 8 | gallery-placeholder-5.png | 갤러리 5번 placeholder (오픈 리스) | gallery slot 5 (풍경) | 1024×1280 | 4:5 | "원형 보태니컬 리스 워터컬러 — 갤러리 5" | 성공 |
-| 9 | og-thumbnail.png | 카카오톡/SNS 공유 썸네일 (og:image) | `<head>` og:image / 카카오 공유 | 1536×800 | 약 1.92:1 | "더스티 로즈 & 세이지 보태니컬 프레임 청첩장 공유 카드" | 성공 |
-
-> 비고: gpt-image-2의 사이즈 제약(16의 배수, 한 변 종횡비 3:1 이내)에 맞추기 위해 floral-divider는 16:5 대신 3:1 (1536×512), og-thumbnail은 1.91:1 대신 1.92:1 (1536×800)으로 조정.
+frontend-developer는 이 표를 보고 각 자산을 최종 분류대로 처리한다.
 
 ---
 
-## 1. hero-illustration
+> **⚠️ 2026-06-25 업데이트 — 실사진으로 교체됨.** 아래 1~6번의 AI 일러스트(hero-illustration.png, gallery-placeholder-0X.png)는 모두 **폐기**되었고, 사용자가 제공한 실제 결혼 사진으로 대체됨. 따라서 "Married" 텍스트 아티팩트 / CSS crop 전략은 **더 이상 유효하지 않음**.
+> - **hero**: `images/hero.jpg` (사용자 제공 `images/gallery/hero.jpg` → 가로 1200px 최적화, 가로 클로즈업). `object-position: center 30%`, 박힌 텍스트 없음. 헤드라인은 기존대로 HTML 오버레이.
+> - **gallery (2026-06-25 2차 개편)**: 캐러셀 → **4열 썸네일 그리드**(20장, 4×5, 간격 0). `images/gallery-01.jpg`~`gallery-20.jpg`(라이트박스용 긴 변 1600px) + `images/gallery-thumb-01.jpg`~`-20.jpg`(그리드용 600px 정사각 center-crop). EXIF 회전 보정. 썸네일 탭 → 라이트박스 확대(원본 전체) + **좌/우 네비(버튼·키보드·스와이프) + "n / 20" 카운터 + 핀치줌**.
+> - **og:image / 카카오 공유**: `images/hero.jpg`로 변경.
+> - 원본 고해상도(장당 4~5MB)는 `images/gallery/`(hero 포함 21장)에 보관하되 `.gitignore` 처리(커밋 제외). 재최적화는 PIL 스크립트로 재실행(hero 가로1200 / gallery 긴변1600 + 정사각썸네일600).
 
-- file: images/hero-illustration.png
-- size: 1024×1280 (4:5 세로)
-- alt: "더스티 로즈 장미와 세이지 유칼립투스 가지의 워터컬러 보태니컬 일러스트"
-- usage: hero 섹션. 신랑신부 사진 placeholder를 대체하는 메인 비주얼. 상단 영문명(Cormorant) + 중앙 일러스트 + 하단 한글 이름이 위에 얹히도록 하단 절반에 충분한 여백 확보.
-- prompt: |
-    A vertical 4:5 hero illustration for a Korean modern romantic wedding invitation web page. Soft watercolor botanical composition on a warm ivory cream background (#FAF6F1 / #FBF7F3). At top-center, a single delicately painted dusty rose blossom (#C9A2A2) with subtle deep rosewood (#8B5A5A) accents in the petal core. Flanking the rose, gracefully arching sage green eucalyptus branches (#A8B59C) and small wildflower sprigs extending outward, leaving generous empty negative space in the lower half for typography overlay. Hand-painted watercolor texture with visible paper grain and soft bleeding edges, minimal thin line accents in muted sage. No text, no figures, no people. Mood: modern romantic, soft botanical, refined warmth, calm, elegant, gallery-quality print feel. High resolution, painterly, asymmetric balance, refined.
+## 1. hero-illustration.png  *(폐기 — 실사진 hero.jpg로 대체)*
 
-## 2. floral-divider
+- **파일**: `images/hero-illustration.png`
+- **사이즈**: 약 3:4 portrait
+- **상태**: **사용 가능 (조건부)** — 상단 약 25%에 "Married" 대형 텍스트 박혀있음. 캐릭터 + 풍경은 깨끗.
+- **사용처**: hero 섹션 배경
+- **frontend 처리**:
+  ```css
+  .hero-img {
+    object-fit: cover;
+    object-position: center 75%;  /* 하단 75% 위치로 정렬 → 상단 텍스트 영역 잘라냄 */
+    aspect-ratio: 3/4;
+  }
+  ```
+  또는 컨테이너에 `overflow: hidden` + 이미지 `transform: translateY(-15%)` + `height: 130%`로 상단 잘라냄. hero 헤드라인 텍스트("We're Getting Married!" / 한태현 ♥ 옥정미 / 2026.11.07)는 이미지 위에 절대 위치로 오버레이하되 이미지 텍스트 영역과 겹치지 않게 하단 배치.
+- **대체 자산**: 없음 (필수)
 
-- file: images/floral-divider.png
-- size: 1536×512 (3:1 가로, 의도는 16:5)
-- alt: "좌우 대칭 워터컬러 플로럴 디바이더"
-- usage: 섹션 간 분리. greeting ↔ couple-intro, venue ↔ account 등 주요 섹션 경계. 가운데 빈 공간이 있어 그 위에 영문 캡션("&", "Save the Date") 또는 연결 라인을 얹기 좋음.
-- prompt: |
-    A horizontal wide 16:5 ornamental floral divider for a Korean wedding invitation web page. Symmetric watercolor botanical composition: a small cluster of dusty rose blossoms (#C9A2A2) with tiny deep rosewood (#8B5A5A) petal cores at the far left and far right, connected by gracefully extending sage green eucalyptus leaves and tiny wildflowers (#A8B59C) along a horizontal axis. Generous empty negative space in the center for text or breathing room. Warm ivory cream background (#FAF6F1). Same illustration style as the hero image: soft watercolor, muted dusty rose and sage palette, hand-painted texture with visible paper grain, minimal thin line accents, no text, no figures. Elegant, calm, refined, asymmetric-symmetric balance, high resolution.
+## 2. gallery-placeholder-01.png
 
-## 3. floral-corner
+- **파일**: `images/gallery-placeholder-01.png`
+- **사이즈**: 1:1
+- **상태**: **사용 가능 (조건부)** — 상단 약 12-15%에 "Marri-" 잘린 텍스트. 캐릭터 + 풍경 메인.
+- **사용처**: 갤러리 1번 카드
+- **frontend 처리**: 카드 컨테이너 `aspect-ratio: 4/5` + `object-position: center 85%` → 상단 잘라냄.
 
-- file: images/floral-corner.png
-- size: 1024×1024 (1:1)
-- alt: "좌상단 모서리 보태니컬 장식"
-- usage: 카드(calendar 카운트다운, account 박스, rsvp 폼 등) 좌상단 모서리. CSS `position: absolute; top:0; left:0; mix-blend-mode: multiply` 또는 단순 마진으로 얹기.
-- prompt: |
-    A 1:1 square corner ornament for a Korean wedding invitation section, anchored at the TOP-LEFT corner. Watercolor floral spray flowing diagonally from the top-left toward the lower-right with generous empty negative space in the lower-right two thirds. A small cluster of dusty rose blossoms (#C9A2A2) with deep rosewood (#8B5A5A) petal cores, accompanied by sage green eucalyptus leaves and tiny wildflower buds (#A8B59C). Warm ivory cream background (#FAF6F1). Same illustration style as the hero image: soft watercolor, muted dusty rose and sage palette, hand-painted texture with paper grain, minimal thin line accents, no text, no figures. Elegant, refined, calm, high resolution.
+## 3. gallery-placeholder-02.png
 
-## 4. gallery-placeholder-1
+- **파일**: `images/gallery-placeholder-02.png`
+- **사이즈**: 1:1
+- **상태**: **완전 깨끗** ✨ — 텍스트 없음. 캐릭터 + 바다 + 보트 + 단풍.
+- **사용처**: 갤러리 2번 카드 (대표 이미지로 활용 추천)
+- **frontend 처리**: 그대로 사용.
 
-- file: images/gallery-placeholder-1.png
-- size: 1024×1280 (4:5)
-- alt: "더스티 로즈와 세이지 부케 워터컬러 — 갤러리 1"
-- usage: gallery 섹션 1번 슬롯 (커플 스냅 placeholder). 가로 스와이프 + 핀치 줌 lightbox 첫 번째 이미지.
-- prompt: |
-    A 4:5 vertical placeholder illustration for a wedding photo gallery slot. Soft watercolor still life composition #1: a delicate bouquet of mixed wildflowers — dusty rose blossoms (#C9A2A2) with deep rosewood (#8B5A5A) cores, small ivory wildflowers, and trailing sage green eucalyptus leaves (#A8B59C) — arranged off-center to the upper-left, with generous negative space in the lower-right quadrant. Warm ivory cream background (#FAF6F1). Same illustration style as the hero image: soft watercolor, muted dusty rose and sage palette, hand-painted texture with paper grain, minimal thin line accents, no text, no figures. Elegant, calm, refined, asymmetric, high resolution.
+## 4. gallery-placeholder-03.png
 
-## 5. gallery-placeholder-2
+- **파일**: `images/gallery-placeholder-03.png`
+- **사이즈**: 1:1
+- **상태**: **사용 곤란** — 상단 약 30%에 "arried" 대형 텍스트.
+- **권장 처리**: object-position으로 하단 65%만 표시 (캐릭터·집 배경) 또는 카드를 가로 16:9로 crop하여 텍스트 영역 더 적극적으로 잘라냄.
+- **대체 안**: 갤러리 5장이 부담스러우면 이 이미지 제외하고 4장으로 운영. (사용자 동의 시)
 
-- file: images/gallery-placeholder-2.png
-- size: 1024×1280 (4:5)
-- alt: "유칼립투스 줄기와 장미 봉오리 워터컬러 — 갤러리 2"
-- usage: gallery 2번 슬롯. 수직 airy 구도로 1번과 시각적 대비.
-- prompt: |
-    A 4:5 vertical placeholder illustration for a wedding photo gallery slot. Soft watercolor still life composition #2: a single tall stem of sage green eucalyptus (#A8B59C) rising from the bottom-center with two or three small dusty rose buds (#C9A2A2) attached at varying heights, the tallest bud touched with deep rosewood (#8B5A5A) at its core. Generous negative space surrounding. Warm ivory cream background (#FAF6F1). Same illustration style as the hero image: soft watercolor, muted dusty rose and sage palette, hand-painted texture with paper grain, minimal thin line accents, no text, no figures. Elegant, calm, refined, vertical airy composition, high resolution.
+## 5. gallery-placeholder-04.png
 
-## 6. gallery-placeholder-3
+- **파일**: `images/gallery-placeholder-04.png`
+- **사이즈**: 1:1
+- **상태**: **사용 가능 (조건부)** — 하단에 노란 ref_inv 가장자리 띠 약 12%. 상단은 캐릭터 일부 잘림이지만 풍경 메인.
+- **사용처**: 갤러리 4번 카드
+- **frontend 처리**: `object-position: center 25%` → 하단 띠 잘라냄.
 
-- file: images/gallery-placeholder-3.png
-- size: 1024×1280 (4:5)
-- alt: "흩날리는 장미 꽃잎 워터컬러 — 갤러리 3"
-- usage: gallery 3번 슬롯. 떠다니는 꽃잎 추상으로 다이내믹.
-- prompt: |
-    A 4:5 vertical placeholder illustration for a wedding photo gallery slot. Soft watercolor abstract composition #3: scattered loose petals of dusty rose (#C9A2A2) and small sage green leaf clusters (#A8B59C) drifting diagonally from the upper-right toward the lower-left, as if floating gently. A few accent strokes of deep rosewood (#8B5A5A) at petal cores. Generous airy negative space throughout. Warm ivory cream background (#FAF6F1). Same illustration style as the hero image: soft watercolor, muted dusty rose and sage palette, hand-painted texture with paper grain, minimal thin line accents, no text, no figures. Elegant, dreamy, calm, refined, high resolution.
+## 6. gallery-placeholder-05.png
 
-## 7. gallery-placeholder-4
+- **파일**: `images/gallery-placeholder-05.png`
+- **사이즈**: 1:1
+- **상태**: **사용 곤란** — 상단 약 30%에 "Married" 대형 텍스트. 그러나 캐릭터 + 집 + 바다 풍경은 모두 들어있음.
+- **권장 처리**: 4:5 세로 카드로 변경 후 `object-position: center 90%` → 상단 텍스트 적극 잘라냄.
 
-- file: images/gallery-placeholder-4.png
-- size: 1024×1280 (4:5)
-- alt: "하단 보태니컬 군집 워터컬러 — 갤러리 4"
-- usage: gallery 4번 슬롯. 하단 군집 + 상단 여백으로 세 번째 변주.
-- prompt: |
-    A 4:5 vertical placeholder illustration for a wedding photo gallery slot. Soft watercolor still life composition #4: a horizontal cluster of small dusty rose buds (#C9A2A2) with deep rosewood (#8B5A5A) accents nestled among trailing sage green eucalyptus and small ferns (#A8B59C), arranged across the lower third of the frame as if resting on an unseen surface. Generous open sky-like negative space in the upper two thirds. Warm ivory cream background (#FAF6F1). Same illustration style as the hero image: soft watercolor, muted dusty rose and sage palette, hand-painted texture with paper grain, minimal thin line accents, no text, no figures. Elegant, calm, refined, grounded composition, high resolution.
+## 7. venue-map-illustration.png
 
-## 8. gallery-placeholder-5
+- **파일**: `images/venue-map-illustration.png`
+- **사이즈**: 1233×1307 (≈1:1.06 세로형)
+- **상태**: **2026-06-25 교체됨** — 기존 gpt-image2 생성본은 한글 라벨이 전부 환각(가짜 역명/도로명, 부모 함자 깨짐)이라 폐기. 사용자가 제공한 정확한 실제 약도(`images/littlemap.jpeg`, 로프트가든344 핀·오목교역 3~7번 출구·실건물명)를 **AI 재생성 없이 PIL 듀오톤 리컬러**로 테마화(크림/탄 배경 + 도로·건물 크림화이트, 텍스트 다크브라운; 핀·출구 뱃지 등 채도 악센트는 보존). → 한글 라벨 100% 정확.
+- **사용처**: venue 섹션 약도
+- **frontend 처리**: `width:100%; height:auto`로 전체 표시(crop 없음). 지도에 정확한 핀이 포함돼 있어 HTML 오버레이 핀(`.map-pin`)은 제거.
+- **재생성 주의**: 이 약도는 gpt-image2로 재생성 금지(한글 라벨 환각 재발). 색만 바꿀 경우 `littlemap.jpeg`를 소스로 PIL 듀오톤 리컬러 재적용할 것.
 
-- file: images/gallery-placeholder-5.png
-- size: 1024×1280 (4:5)
-- alt: "원형 보태니컬 리스 워터컬러 — 갤러리 5"
-- usage: gallery 5번 슬롯 (풍경 자리). 대칭 리스 구도로 마무리감.
-- prompt: |
-    A 4:5 vertical placeholder illustration for a wedding photo gallery slot. Soft watercolor circular wreath composition #5: a delicate open ring of mixed botanicals encircling the center — dusty rose blossoms (#C9A2A2) with deep rosewood (#8B5A5A) cores spaced at the cardinal points, sage green eucalyptus leaves and tiny wildflowers (#A8B59C) filling the connecting curves. The very center of the wreath is empty (negative space). Warm ivory cream background (#FAF6F1). Same illustration style as the hero image: soft watercolor, muted dusty rose and sage palette, hand-painted texture with paper grain, minimal thin line accents, no text, no figures. Elegant, symmetric, calm, refined, high resolution.
+## 8. section-divider-flowers.png
 
-## 9. og-thumbnail
+- **파일**: `images/section-divider-flowers.png`
+- **사이즈**: 16:9 wide
+- **상태**: **부분 사용** — 좌우 약 20%씩이 ref_inv 노란 가장자리 모방 (구름 + 잎사귀). 중앙 60%는 깨끗 (작은 빨간 하트 + 옅은 라인).
+- **권장 처리**:
+  - (A) 중앙 60%만 crop하여 사용 (`width: 60%; object-fit: cover; object-position: center;` 후 마스크)
+  - (B) **추천**: 이미지 사용 안 하고 SVG/CSS로 직접 디바이더 구성 — 가는 점선 라인 + 코랄 하트 1개 + 그린 작은 잎사귀 양쪽. 사용자 정책("CSS 요소로 처리")에 부합.
+- frontend는 (B) 권장.
 
-- file: images/og-thumbnail.png
-- size: 1536×800 (≈1.92:1)
-- alt: "더스티 로즈 & 세이지 보태니컬 프레임 청첩장 공유 카드"
-- usage: `<head>` 의 `og:image`, `twitter:image`, 카카오톡 공유 미리보기. 가운데 빈 공간에 신랑신부 모노그램(예: "M & S") 또는 "WEDDING INVITATION" 텍스트를 frontend에서 SVG/HTML 오버레이로 합성하는 것을 권장.
-- prompt: |
-    A wide 1.91:1 social media share thumbnail (Open Graph / KakaoTalk preview) for a Korean modern romantic wedding invitation. Watercolor wedding theme: dusty rose blossoms (#C9A2A2) with deep rosewood (#8B5A5A) accents and sage green eucalyptus branches (#A8B59C) framing the four corners and edges, leaving a clean empty rounded area in the absolute center for a small monogram (the center area must remain empty negative space, no text rendered). Warm ivory cream background (#FAF6F1). Same illustration style as the hero image: soft watercolor, muted dusty rose and sage palette, hand-painted texture with paper grain, minimal thin line accents, no text, no figures, no letters. Elegant, magazine-cover composition, balanced, refined, calm, high resolution.
+## 9. couple-icon-groom.png / couple-icon-bride.png
+
+- **파일**: `images/couple-icon-groom.png`, `images/couple-icon-bride.png`
+- **사이즈**: 1:1
+- **상태**: **사용 곤란** — 캐릭터 일부만 보이고 옆에 한글 텍스트("옥…", "미") 박혀있음. 작은 아이콘으로 사용 시 텍스트가 더 두드러짐.
+- **권장 처리**: **이미지 사용 안 하고 SVG 또는 이모지 + CSS 도형으로 대체**.
+  - 대안 1: 인라인 SVG로 작은 신랑·신부 픽토그램 직접 그리기 (검정/크림 색상 도형)
+  - 대안 2: 유니코드 기호 🤵🏻‍♂️ 👰🏻‍♀️ 또는 CSS로 그려낸 작은 원형 라벨에 "신랑" / "신부" 한글로 표기
+  - 대안 3 (가장 단순): 부모 함자 옆에 작은 SVG 하트 또는 별 아이콘만 두고 캐릭터 아이콘 생략
+- **권장**: 대안 3 — 미니멀하게 SVG 하트 한 개로 처리.
+
+## 10. og-thumbnail.png
+
+- **파일**: `images/og-thumbnail.png`
+- **사이즈**: 약 1200x630 16:9
+- **상태**: **사용 곤란** — 상단 약 40%에 "Married" 대형 텍스트가 박혀 있음. 우측에 큰 빈 영역.
+- **권장 처리**:
+  - (A) 그대로 사용 — og 이미지는 카카오톡/SNS에서 작게 보여서 텍스트 아티팩트 영향이 hero만큼 크지 않음. 단, 메타 태그에 og:title("한태현 ♥ 옥정미 결혼합니다")이 별도로 노출되므로 이미지 자체의 텍스트는 중복 노이즈.
+  - (B) **추천**: gallery-02 (깨끗한 이미지)를 og:image로 재활용. 1200x630 정확한 비율이 아니어도 og 미리보기는 정사각형 fallback 처리됨.
+- frontend는 (B) 채택 권장 — `<meta property="og:image" content="images/gallery-placeholder-02.png">`.
 
 ---
 
-## 프론트엔드 통합 가이드
+## 최종 사용 자산 요약
 
-- **컬러 매칭**: 모든 이미지의 베이스가 `#FAF6F1` 톤이므로, CSS `--color-bg: #FBF7F3`와 미세한 차이가 있을 수 있다. 필요 시 이미지 컨테이너에 `background-color: #FAF6F1;` 또는 `mix-blend-mode: multiply` 적용.
-- **og-thumbnail의 모노그램 합성**: 이미지 자체에 텍스트가 없으므로 (a) Canvas로 클라이언트 합성 후 og:image 동적 생성하거나, (b) 별도로 텍스트 합성된 PNG를 추가 생성하거나, (c) 그대로 사용 후 메타 description으로 보완.
-- **갤러리 5장의 시각적 대비**: 1=오프센터 부케 / 2=수직 줄기 / 3=떠다니는 꽃잎 / 4=하단 군집 / 5=원형 리스 — 가로 스와이프 시 다양성이 유지되도록 의도적으로 다른 구도.
-- **lazy loading 권장**: hero, gallery 1-2는 eager, gallery 3-5와 og-thumbnail은 lazy.
-- **AVIF/WebP 변환**: 트래픽 절감 위해 빌드 단계에서 sharp 등으로 변환 권장 (원본 PNG는 평균 1.7MB).
+| 자산 | 분류 | 비고 |
+|------|------|------|
+| `hero-illustration.png` | ✅ 사용 (crop) | hero 배경, 상단 25% 잘라냄 |
+| `gallery-placeholder-01.png` | ✅ 사용 (crop) | 갤러리, 상단 15% 잘라냄 |
+| `gallery-placeholder-02.png` | ✅ 사용 (그대로) | 갤러리 + **og:image** |
+| `gallery-placeholder-03.png` | ✅ 사용 (강한 crop) | 갤러리, 상단 30% 잘라냄 |
+| `gallery-placeholder-04.png` | ✅ 사용 (crop) | 갤러리, 하단 12% 잘라냄 |
+| `gallery-placeholder-05.png` | ✅ 사용 (강한 crop) | 갤러리, 상단 30% 잘라냄 |
+| `venue-map-illustration.png` | ✅ 사용 (실제 약도 리컬러) | venue 약도, 전체 표시 (crop 없음) |
+| `section-divider-flowers.png` | ❌ 미사용 | SVG/CSS 디바이더로 대체 |
+| `couple-icon-groom.png` | ❌ 미사용 | SVG 하트로 대체 |
+| `couple-icon-bride.png` | ❌ 미사용 | SVG 하트로 대체 |
+| `og-thumbnail.png` | ❌ 미사용 | gallery-placeholder-02.png를 og:image로 사용 |
 
-## 체크리스트 (자가 검증)
+---
 
-- [x] 모든 이미지가 dusty rose × sage 듀오톤 + warm ivory bg로 일관
-- [x] 첫 이미지(hero)의 스타일이 후속 8장 프롬프트에 명시 인용됨 ("Same illustration style as the hero image")
-- [x] 컨셉 시트의 imagery_direction (워터컬러 보태니컬, 더스티 로즈 + 세이지, 종이 텍스처) 반영
-- [x] 텍스트 렌더링 자리(hero 하단 50%, divider 중앙, og 중앙)에 충분한 여백
-- [x] `images/` 폴더에 9장 모두 저장 확인
-- [x] 실존 인물 묘사 없음 (저작권 안전)
-- [x] 매니페스트에 alt 텍스트 + 사용 위치 + 프롬프트 모두 기록
+## frontend-developer 통합 가이드
+
+### CSS crop 패턴 (각 이미지별 권장 값)
+
+```css
+/* hero */
+.hero-illustration {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 85%;  /* 상단 "Married" 텍스트 잘라냄 */
+}
+
+/* gallery: 4:5 세로 카드 */
+.gallery-card img { object-fit: cover; object-position: center; }
+.gallery-card--01 img { object-position: center 88%; }
+.gallery-card--02 img { object-position: center; }      /* 그대로 */
+.gallery-card--03 img { object-position: center 92%; }  /* 상단 30% 잘라냄 */
+.gallery-card--04 img { object-position: center 20%; }  /* 하단 띠 잘라냄 */
+.gallery-card--05 img { object-position: center 92%; }
+
+/* venue — 실제 약도 리컬러본, 전체 표시 */
+.venue-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--color-bg);
+}
+```
+
+### SVG 대체 자산 (인라인)
+
+```html
+<!-- section divider: 가는 점선 + 코랄 하트 + 양쪽 잎사귀 -->
+<svg viewBox="0 0 320 24" class="divider" aria-hidden="true">
+  <path d="M10 12 L140 12" stroke="#3F8F4A" stroke-width="1" stroke-dasharray="2 4"/>
+  <path d="M180 12 L310 12" stroke="#3F8F4A" stroke-width="1" stroke-dasharray="2 4"/>
+  <!-- 작은 잎사귀 양쪽 -->
+  <path d="M140 12 q4 -6 8 0 q-4 6 -8 0" fill="#3F8F4A"/>
+  <path d="M172 12 q4 -6 8 0 q-4 6 -8 0" fill="#3F8F4A"/>
+  <!-- 중앙 코랄 하트 -->
+  <path d="M160 16 c-6 -4 -10 -8 -6 -12 c2 -2 4 0 6 2 c2 -2 4 -4 6 -2 c4 4 0 8 -6 12 z" fill="#E54C2E"/>
+</svg>
+
+<!-- couple icon: 작은 하트만 -->
+<svg viewBox="0 0 24 24" class="couple-icon" aria-hidden="true">
+  <path d="M12 21 c-6 -5 -10 -9 -6 -13 c2 -2 4 0 6 2 c2 -2 4 -4 6 -2 c4 4 0 8 -6 13 z" fill="#E54C2E"/>
+</svg>
+```
+
+### og:image 설정
+
+```html
+<meta property="og:image" content="images/gallery-placeholder-02.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+```
+
+(gallery-02는 1:1이므로 og:type "square fallback"으로 동작. 카카오톡은 정사각형 미리보기 잘 지원.)
+
+---
+
+## 향후 사용자 보강 시 옵션
+
+사용자가 추후 이미지를 깨끗하게 다시 만들고 싶을 때:
+- `_workspace/_image_gen.py`의 STYLE 상수에서 `"No words, no letters, no Korean characters anywhere in the image."` 부분을 더 강하게 강조 — 예: 프롬프트 맨 앞에 대문자로 `"ABSOLUTELY NO TEXT, NO LETTERS, NO KOREAN CHARACTERS, NO ENGLISH WORDS ANYWHERE IN THE IMAGE. PURE ILLUSTRATION ONLY."` 추가.
+- `python3 _workspace/_image_gen.py hero-illustration og-thumbnail venue-map-illustration` 처럼 인자 전달로 특정 이미지만 재생성 가능.
+- 또는 사용자 본인 결혼사진을 `images/gallery-placeholder-01.png ~ 05.png` 파일명으로 대체하면 즉시 갤러리에 반영.
