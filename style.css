@@ -230,8 +230,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  padding: 0 24px 14svh;
+  justify-content: flex-start;
+  padding: 10svh 24px 0;
   gap: 10px;
   text-align: center;
 }
