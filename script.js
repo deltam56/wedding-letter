@@ -492,19 +492,6 @@
     });
   }
 
-  // ============== I. RSVP Button ==============
-  function initRSVP() {
-    const btn = document.getElementById('rsvp-btn');
-    if (!btn) return;
-    btn.addEventListener('click', (e) => {
-      const href = btn.getAttribute('href');
-      if (!href || href === '#' || href === '') {
-        e.preventDefault();
-        showToast('RSVP 폼이 준비되는 대로 안내드릴게요');
-      }
-    });
-  }
-
   // ============== J. Share (Kakao + Link Copy) ==============
   function initShare() {
     const kakaoBtn = document.getElementById('share-kakao');
@@ -611,7 +598,6 @@
     initGallery();
     initLightbox();
     initCopyButtons();
-    initRSVP();
     initShare();
     initScrollIndicator();
     watchReducedMotion();
