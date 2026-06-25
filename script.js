@@ -492,51 +492,6 @@
     });
   }
 
-  // ============== H. BGM Toggle ==============
-  function initBGM() {
-    const btn = document.getElementById('music-toggle');
-    const audio = document.getElementById('bgm');
-    if (!btn || !audio) return;
-
-    let faded = false;
-    const TARGET_VOL = 0.4;
-    const FADE_MS = 1500;
-    audio.volume = 0;
-
-    function fadeIn() {
-      if (faded || isReduced()) {
-        audio.volume = TARGET_VOL;
-        faded = true;
-        return;
-      }
-      const start = performance.now();
-      function step(now) {
-        const t = Math.min(1, (now - start) / FADE_MS);
-        audio.volume = TARGET_VOL * t;
-        if (t < 1) requestAnimationFrame(step);
-        else faded = true;
-      }
-      requestAnimationFrame(step);
-    }
-
-    btn.addEventListener('click', async () => {
-      if (audio.paused) {
-        try {
-          await audio.play();
-          btn.setAttribute('aria-pressed', 'true');
-          fadeIn();
-        } catch (e) {
-          // 자동재생 차단 등
-          showToast('음악을 재생할 수 없어요');
-        }
-      } else {
-        audio.pause();
-        btn.setAttribute('aria-pressed', 'false');
-      }
-      if (navigator.vibrate) { try { navigator.vibrate(10); } catch (_) {} }
-    });
-  }
-
   // ============== I. RSVP Button ==============
   function initRSVP() {
     const btn = document.getElementById('rsvp-btn');
@@ -656,7 +611,6 @@
     initGallery();
     initLightbox();
     initCopyButtons();
-    initBGM();
     initRSVP();
     initShare();
     initScrollIndicator();
