@@ -548,11 +548,12 @@ section {
 /* 4열 썸네일 그리드 — 간격 0 모자이크 */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
+  background: #fff;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 6px 22px rgba(43,33,24,0.12);
