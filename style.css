@@ -1007,3 +1007,54 @@ section {
   }
   body, .card { background: #fff !important; box-shadow: none !important; }
 }
+
+/* ===== 24. Scene 자산 장식 ===== */
+.hero { }
+.hero-deco-divider {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 10px auto 0;
+  position: relative;
+  z-index: 1;
+}
+.hero-pot {
+  position: absolute;
+  bottom: 10px;
+  width: 60px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.96;
+}
+.hero-pot--l { left: 10px; }
+.hero-pot--r { right: 10px; }
+
+/* 신랑신부 캐릭터 (couple intro 카드) */
+.couple-card { position: relative; }
+.couple-illus {
+  display: block;
+  width: auto;
+  height: 118px;
+  margin: 0 auto 6px;
+}
+
+/* 섹션 헤더 밑 토픽 일러스트 */
+.sec-accent { display: block; height: auto; margin: 0 auto 4px; }
+.sec-accent--house { width: 104px; }
+.sec-accent--envelope { width: 66px; }
+.sec-accent--rings { width: 78px; }
+.sec-accent--bouquet { width: 58px; }
+
+/* 푸터 바다 풍경 */
+.footer-scene {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 12px;
+  margin: 6px 0 14px;
+}
+.footer-scene img { height: auto; display: block; }
+.fs-boat { width: 92px; }
+.fs-sail { width: 40px; }
+.fs-rocks { width: 52px; }
