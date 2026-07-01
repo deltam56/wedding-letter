@@ -434,25 +434,42 @@
   }
 
   // ============== G. Account Copy ==============
-  function copyText(txt) {
+  function legacyCopy(txt) {
+    // execCommand 기반 fallback — 인앱 브라우저(카카오톡 등)/구형 대응
+    const ta = document.createElement('textarea');
+    ta.value = txt;
+    ta.setAttribute('readonly', '');
+    ta.contentEditable = 'true';
+    ta.style.position = 'fixed';
+    ta.style.top = '0';
+    ta.style.left = '0';
+    ta.style.width = '1px';
+    ta.style.height = '1px';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    const range = document.createRange();
+    range.selectNodeContents(ta);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    ta.select();
+    ta.setSelectionRange(0, txt.length); // iOS
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  async function copyText(txt) {
+    // 1) 최신 Clipboard API 시도
     if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(txt);
-    }
-    return new Promise((resolve, reject) => {
       try {
-        const ta = document.createElement('textarea');
-        ta.value = txt;
-        ta.style.position = 'fixed';
-        ta.style.left = '-9999px';
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        resolve();
-      } catch (e) {
-        reject(e);
-      }
-    });
+        await navigator.clipboard.writeText(txt);
+        return;
+      } catch (e) { /* 인앱 브라우저 등에서 거부 시 fallback */ }
+    }
+    // 2) 레거시 fallback
+    if (!legacyCopy(txt)) throw new Error('copy failed');
   }
 
   function showToast(msg) {
