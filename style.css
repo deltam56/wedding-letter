@@ -216,62 +216,10 @@ section {
   text-align: center;
   color: var(--color-text);
 }
-.hero-media {
-  position: relative;
-  width: 100%;
-}
 .hero-collage {
   width: 100%;
   height: auto;
   display: block;
-}
-.hero-title {
-  position: absolute;
-  top: 12%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: min(86%, 336px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  pointer-events: none;
-  transform: rotate(-3.5deg);
-  opacity: 0;
-  animation: fadeInTitle 500ms var(--ease-standard) 250ms forwards;
-}
-@keyframes fadeInTitle { to { opacity: 1; } }
-.hero-title-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scaleY(0.62);
-  width: 124%;
-  max-width: none;
-  height: auto;
-  z-index: 0;
-}
-.hero-title-en {
-  position: relative;
-  z-index: 1;
-  font-family: var(--font-en-display);
-  font-size: 36px;
-  line-height: 1.06;
-  letter-spacing: 0.01em;
-  color: #C0442A;
-  text-shadow: 0 1px 0 rgba(255,250,240,0.5);
-}
-.hero-title-date {
-  position: relative;
-  z-index: 1;
-  margin-top: 5px;
-  font-family: var(--font-en-display-alt);
-  font-weight: 600;
-  font-size: 19px;
-  letter-spacing: 0.24em;
-  color: #7A5230;
 }
 .hero-date {
   font-family: var(--font-en-display-alt);
